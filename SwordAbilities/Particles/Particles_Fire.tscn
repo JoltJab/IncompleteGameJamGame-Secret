@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://jw7s8nnadrdw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eulfq"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="Gradient" id="Gradient_fih07"]
+offsets = PackedFloat32Array(0.106667, 0.284444, 0.475556, 0.666667, 0.866667, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.844461, 0.68441, 0.331201, 1, 0.764435, 0.544313, 5.77569e-07, 1, 0.723692, 0.30765, 9.62615e-08, 1, 0.337255, 0, 0.0627451, 0.584314, 0.337255, 0, 0.0627451, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j3oyt"]
+gradient = SubResource("Gradient_fih07")
+
+[sub_resource type="Curve" id="Curve_o5xdy"]
+_data = [Vector2(0, 0.269421), 0.0, 0.0, 0, 0, Vector2(1, 0.602479), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qh34x"]
+curve = SubResource("Curve_o5xdy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tvwjx"]
+emission_shape_offset = Vector3(0, 0.48, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.065
+emission_ring_radius = 0.2
+emission_ring_inner_radius = 0.1
+direction = Vector3(0, 1, 0)
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, 4.525, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -2.08
+radial_accel_max = 2.07
+tangential_accel_min = 0.689998
+tangential_accel_max = 2.07
+damping_min = 1.73
+damping_max = 1.73
+attractor_interaction_enabled = false
+scale_min = 0.5
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_qh34x")
+color_ramp = SubResource("GradientTexture1D_j3oyt")
+
+[sub_resource type="SphereMesh" id="SphereMesh_qyist"]
+
+[sub_resource type="Gradient" id="Gradient_3avn1"]
+offsets = PackedFloat32Array(0.506667, 0.737778, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.0352941, 0.0352941, 0.0352941, 0.2, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vc35y"]
+gradient = SubResource("Gradient_3avn1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nub8v"]
+emission_shape_offset = Vector3(0, 0.5, 0)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 0.2
+emission_ring_inner_radius = 0.1
+direction = Vector3(0, 1, 0)
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, 2.615, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = 0.499998
+tangential_accel_max = 0.499998
+damping_min = 2.0
+damping_max = 2.0
+attractor_interaction_enabled = false
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_qh34x")
+color_ramp = SubResource("GradientTexture1D_vc35y")
+
+[node name="FireParticles" type="Node3D"]
+
+[node name="Fire" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_eulfq")
+amount = 30
+lifetime = 0.5
+preprocess = 0.5
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_tvwjx")
+draw_pass_1 = SubResource("SphereMesh_qyist")
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+visible = false
+material_override = SubResource("StandardMaterial3D_eulfq")
+amount = 30
+lifetime = 2.0
+preprocess = 2.5
+process_material = SubResource("ParticleProcessMaterial_nub8v")
+draw_pass_1 = SubResource("SphereMesh_qyist")

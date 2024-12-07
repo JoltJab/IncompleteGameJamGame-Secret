@@ -1,0 +1,151 @@
+[gd_scene load_steps=8 format=3 uid="uid://dj04fcja5kgqm"]
+
+[ext_resource type="Script" path="res://TestFolder/Rooms/sword_name_room.gd" id="1_g2mu6"]
+[ext_resource type="PackedScene" uid="uid://dvva1liku0g3q" path="res://TestFolder/Entities/Sword/Test_Weapon.tscn" id="1_s8dei"]
+[ext_resource type="Theme" uid="uid://dpahe2m8bitbr" path="res://TestFolder/UI/ControlTheme_001.tres" id="2_g4xd8"]
+[ext_resource type="Script" path="res://TestFolder/Rooms/sword_name_room_ui.gd" id="3_0wlqo"]
+
+[sub_resource type="Animation" id="Animation_qaffk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/Weapon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oodlb"]
+resource_name = "Spin"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/Weapon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4xcut"]
+_data = {
+"RESET": SubResource("Animation_qaffk"),
+"Spin": SubResource("Animation_oodlb")
+}
+
+[node name="SwordNameRoom" type="Node3D"]
+script = ExtResource("1_g2mu6")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.649, 2.683)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.590019, -0.6429, 0.488423, 0.736758, 0.676156, 2.06013e-10, -0.33025, 0.35985, 0.872607, 0.188661, 0, -0.0568386)
+
+[node name="Weapon" parent="Node3D" instance=ExtResource("1_s8dei")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 4.46638e-06, 0, 1, 0, -4.46638e-06, 0, 1, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.827953, 0.354538, -0.434506, -0.00425883, 0.778754, 0.627315, 0.560781, -0.517537, 0.646282, -2.69918, 3.88527, 1.91154)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.295517, -0.708395, 0.640974, -0.230034, 0.703962, 0.671953, -0.927229, 0.0511278, -0.370987, 3.41076, 3.88527, -5.52909)
+light_energy = 16.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_0wlqo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+alignment = 1
+
+[node name="The" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_g4xd8")
+text = "The "
+
+[node name="WeaponName" type="LineEdit" parent="Control/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_g4xd8")
+alignment = 1
+expand_to_text_length = true
+
+[node name="Sword" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_g4xd8")
+text = " Sword
+"
+
+[node name="Spacer2" type="Control" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Spacer" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StartButton" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_g4xd8")
+text = "Start"
+
+[node name="Spacer2" type="Control" parent="Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer3" type="Control" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4xcut")
+}
+autoplay = "Spin"
+
+[connection signal="text_changed" from="Control/VBoxContainer/HBoxContainer/WeaponName" to="Control" method="_on_weapon_name_text_changed"]
+[connection signal="text_submitted" from="Control/VBoxContainer/HBoxContainer/WeaponName" to="." method="_on_weapon_name_text_submitted"]
+[connection signal="button_up" from="Control/VBoxContainer/HBoxContainer2/StartButton" to="." method="_on_start_button_button_up"]

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SwordAbility" load_steps=7 format=3 uid="uid://ccnpsy1f4iai"]
+
+[ext_resource type="Script" path="res://Classes/SwordAbility.gd" id="1_61m85"]
+[ext_resource type="PackedScene" uid="uid://jw7s8nnadrdw" path="res://SwordAbilities/Particles/Particles_Fire.tscn" id="1_aay0u"]
+[ext_resource type="Script" path="res://SwordAbilities/X_Factors/damageOverTime.gd" id="3_7ryc4"]
+[ext_resource type="Script" path="res://SwordAbilities/X_Factors/KindaFast.gd" id="4_b8hl2"]
+[ext_resource type="Script" path="res://SwordAbilities/X_Factors/TurnRed.gd" id="5_livbv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qh7jx"]
+albedo_color = Color(0.821596, 0, 0.0289193, 1)
+metallic = 1.0
+metallic_specular = 0.97
+roughness = 0.3
+emission = Color(0.879342, 0, 0.171257, 1)
+emission_energy_multiplier = 16.0
+
+[resource]
+script = ExtResource("1_61m85")
+name = "Fire"
+name_variation = PackedStringArray("fire", "flame", "flaming", "flare", "inferno", "burning", "pyro", "scorch", "scorcher", "torch", "igni", "ignited", "sear", "singe", "blaze", "combustion", "ember", "pyre", "fiery", "searing", "scorching", "blazing", "incineration", "heat", "burn", "infernal", "cinder", "hot", "heat", "heated")
+material = SubResource("StandardMaterial3D_qh7jx")
+particleEffects = ExtResource("1_aay0u")
+xFactor = Array[Script]([ExtResource("3_7ryc4"), ExtResource("4_b8hl2"), ExtResource("5_livbv")])
+status_duration = 10.0

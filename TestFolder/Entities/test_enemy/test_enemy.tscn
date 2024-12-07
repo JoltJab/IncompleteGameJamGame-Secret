@@ -1,0 +1,185 @@
+[gd_scene load_steps=14 format=3 uid="uid://b4qhy2cgu6a1e"]
+
+[ext_resource type="Script" path="res://TestFolder/Entities/test_enemy/test_enemy.gd" id="1_ly8mn"]
+[ext_resource type="Script" path="res://TestFolder/Entities/test_enemy/hitbox.gd" id="2_d7f4h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c88ce"]
+radius = 1.0
+height = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_355md"]
+transparency = 1
+albedo_color = Color(0.909804, 0.407843, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oswuo"]
+material = SubResource("StandardMaterial3D_355md")
+radius = 1.0
+height = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbdm0"]
+albedo_color = Color(0.8955, 0.0258264, 8.66354e-07, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kv6ie"]
+material = SubResource("StandardMaterial3D_nbdm0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6a3k"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lujdw"]
+material = SubResource("StandardMaterial3D_a6a3k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78ubw"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_s5dko"]
+material = SubResource("StandardMaterial3D_78ubw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sfmgx"]
+size = Vector3(1.5, 2.32, 1.89)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t5jwj"]
+size = Vector3(1.5, 2.32, 1.89)
+
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("nav_agent", "body", "weapon") groups=["Enemies"]]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_ly8mn")
+nav_agent = NodePath("NavigationAgent3D")
+body = NodePath("Body")
+weapon = NodePath("Body/hitbox")
+speed = 500.0
+max_health = 1000.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_c88ce")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("CapsuleMesh_oswuo")
+
+[node name="EyebrowL3D" type="Node3D" parent="Body"]
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Body/EyebrowL3D"]
+transform = Transform3D(0.112855, 0, 0, 0, 0.112855, 0, 0, 0, 0.112855, -0.243748, 0.89013, -0.945669)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Body/EyebrowL3D"]
+transform = Transform3D(0.112855, 0, 0, 0, 0.112855, 0, 0, 0, 0.112855, -0.31163, 0.943065, -0.93981)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Body/EyebrowL3D"]
+transform = Transform3D(0.112855, 0, 0, 0, 0.112855, 0, 0, 0, 0.112855, -0.377708, 0.992683, -0.909937)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Body/EyebrowL3D"]
+transform = Transform3D(0.112855, 0, 0, 0, 0.112855, 0, 0, 0, 0.112855, -0.451478, 1.01341, -0.878291)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Body/EyebrowL3D"]
+transform = Transform3D(0.112855, 0, 0, 0, 0.112855, 0, 0, 0, 0.112855, -0.508398, 0.98863, -0.856876)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="EyebrowR3D" type="Node3D" parent="Body"]
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Body/EyebrowR3D"]
+transform = Transform3D(0.112855, 0, 0, 0, 0.112855, 0, 0, 0, 0.112855, 0.244, 0.889982, -0.946)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Body/EyebrowR3D"]
+transform = Transform3D(0.112855, 0, 0, 0, 0.112855, 0, 0, 0, 0.112855, 0.312, 0.943085, -0.94)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Body/EyebrowR3D"]
+transform = Transform3D(0.112855, 0, 0, 0, 0.112855, 0, 0, 0, 0.112855, 0.378, 0.992624, -0.91)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Body/EyebrowR3D"]
+transform = Transform3D(0.112855, 0, 0, 0, 0.112855, 0, 0, 0, 0.112855, 0.451, 1.01298, -0.878)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Body/EyebrowR3D"]
+transform = Transform3D(0.112855, 0, 0, 0, 0.112855, 0, 0, 0, 0.112855, 0.508, 0.98892, -0.857)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="Nose3D" type="Node3D" parent="Body"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Nose3D"]
+transform = Transform3D(0.61604, 0, 0, 0, 0.61604, 0, 0, 0, 0.61604, 0, 0.340696, -1.15666)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body/Nose3D"]
+transform = Transform3D(0.600129, 0, 0, 0, 0.600129, 0, 0, 0, 0.600129, 0, 0.513301, -0.985753)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Body/Nose3D"]
+transform = Transform3D(0.566381, 0, 0, 0, 0.566381, 0, 0, 0, 0.566381, 0, 0.715354, -0.81006)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Body/Nose3D"]
+transform = Transform3D(0.481243, 0, 0, 0, 0.481243, 0, 0, 0, 0.481243, 0.24894, 0.352289, -1.01667)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Body/Nose3D"]
+transform = Transform3D(0.481243, 0, 0, 0, 0.481243, 0, 0, 0, 0.481243, -0.249, 0.352146, -1.017)
+mesh = SubResource("SphereMesh_kv6ie")
+skeleton = NodePath("../..")
+
+[node name="EyeL3D" type="Node3D" parent="Body"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/EyeL3D"]
+transform = Transform3D(0.258588, 0, 0, 0, 0.258588, 0, 0, 0, 0.258588, -0.388025, 0.855357, -0.849275)
+mesh = SubResource("SphereMesh_lujdw")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body/EyeL3D"]
+transform = Transform3D(0.153983, 0, 0, 0, 0.153983, 0, 0, 0, 0.153983, -0.388025, 0.855357, -0.930253)
+mesh = SubResource("SphereMesh_s5dko")
+skeleton = NodePath("../..")
+
+[node name="EyeR3D" type="Node3D" parent="Body"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/EyeR3D"]
+transform = Transform3D(0.258588, 0, 0, 0, 0.258588, 0, 0, 0, 0.258588, 0.388, 0.855, -0.849)
+mesh = SubResource("SphereMesh_lujdw")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body/EyeR3D"]
+transform = Transform3D(0.153983, 0, 0, 0, 0.153983, 0, 0, 0, 0.153983, 0.388, 0.855, -0.93)
+mesh = SubResource("SphereMesh_s5dko")
+skeleton = NodePath("../..")
+
+[node name="hitbox" type="Area3D" parent="Body" node_paths=PackedStringArray("user", "shape_cast")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30399, -1.53837)
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("2_d7f4h")
+user = NodePath("../..")
+shape_cast = NodePath("ShapeCast3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body/hitbox"]
+shape = SubResource("BoxShape3D_sfmgx")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Body/hitbox"]
+shape = SubResource("BoxShape3D_t5jwj")
+target_position = Vector3(0, 0, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.3
+target_desired_distance = 2.0
+debug_enabled = true
+
+[connection signal="body_entered" from="Body/hitbox" to="Body/hitbox" method="_on_body_entered"]

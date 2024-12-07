@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SwordAbility" load_steps=6 format=3 uid="uid://dcv61dbcgfc5a"]
+
+[ext_resource type="PackedScene" uid="uid://b2a7wimgtw06e" path="res://SwordAbilities/Particles/Particles_Lightning.tscn" id="1_224jm"]
+[ext_resource type="Script" path="res://Classes/SwordAbility.gd" id="1_tpxp2"]
+[ext_resource type="Script" path="res://SwordAbilities/X_Factors/Stop.gd" id="3_w2l7w"]
+[ext_resource type="Script" path="res://SwordAbilities/X_Factors/TurnYellow.gd" id="4_gu0r0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2x84b"]
+albedo_color = Color(0.709707, 0.70879, 0.0633213, 1)
+rim = 0.03
+rim_tint = 0.2
+
+[resource]
+script = ExtResource("1_tpxp2")
+name = "lightning"
+name_variation = PackedStringArray("bolt", "flash", "spark", "thunderbolt", "thunder", "plasma", "shock", "spark", "zap", "electric")
+material = SubResource("StandardMaterial3D_2x84b")
+particleEffects = ExtResource("1_224jm")
+xFactor = Array[Script]([ExtResource("3_w2l7w"), ExtResource("4_gu0r0")])
+status_duration = 4.0

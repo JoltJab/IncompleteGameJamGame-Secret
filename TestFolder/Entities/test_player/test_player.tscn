@@ -1,0 +1,152 @@
+[gd_scene load_steps=11 format=3 uid="uid://clqeb6tryrvq1"]
+
+[ext_resource type="Script" path="res://TestFolder/Entities/test_player/test_player.gd" id="1_prah3"]
+[ext_resource type="PackedScene" uid="uid://dvva1liku0g3q" path="res://TestFolder/Entities/Sword/Test_Weapon.tscn" id="2_rim5x"]
+[ext_resource type="Resource" uid="uid://dwreyy8uj8hhv" path="res://SwordAbilities/Ability_Ice.tres" id="3_17vaa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xakpc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5y32k"]
+albedo_color = Color(2.31028e-06, 0.648034, 0.83024, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wqybh"]
+material = SubResource("StandardMaterial3D_5y32k")
+
+[sub_resource type="Animation" id="Animation_ljiu0"]
+resource_name = "Attack"
+length = 0.66667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TestWeapon:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.366667, 0.433333, 0.5, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.00236, 1.25354, 0.317477), Vector3(-1.27069, 1.56119, 0.278594), Vector3(-1.23508, 1.45035, -0.431553), Vector3(-0.645542, 0.847714, -1.08914), Vector3(0.383989, 0.381032, -1.69809), Vector3(1.41352, -0.0856501, -0.630551), Vector3(1.37485, -0.0856501, -0.635875), Vector3(1.13092, 0.0954577, -1.12193), Vector3(0.616964, 0.448143, -1.48743), Vector3(-0.789998, 0, 0.09354)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TestWeapon:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.366667, 0.433333, 0.5, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.747821, 1.88763, 0.099144), Vector3(-0.804244, 1.68226, 0.427815), Vector3(-0.761003, 1.62076, -0.226567), Vector3(-0.774185, 1.3539, -0.552278), Vector3(-0.9853, 1.34105, -1.42053), Vector3(-1.19641, 1.3282, -2.28879), Vector3(-1.19641, 0.420103, -2.28879), Vector3(-0.355548, -0.258312, -1.05412), Vector3(-0.170661, -0.126302, -0.659338), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"transition_to_idle"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_t55dm"]
+resource_name = "Idle"
+length = 1.66667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TestWeapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.833333, 1.66667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.789998, 0, 0.09354), Vector3(-0.789998, 0.126437, 0.09354), Vector3(-0.789998, 0, 0.09354)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TestWeapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.833333, 1.66667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w44b2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TestWeapon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.789998, 0, 0.09354)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TestWeapon:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aei6x"]
+_data = {
+"Attack": SubResource("Animation_ljiu0"),
+"Idle": SubResource("Animation_t55dm"),
+"RESET": SubResource("Animation_w44b2")
+}
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("animation_player", "body", "weapon")]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_prah3")
+animation_player = NodePath("AnimationPlayer")
+body = NodePath("MeshInstance3D")
+weapon = NodePath("TestWeapon")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xakpc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_wqybh")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="TestWeapon" parent="." node_paths=PackedStringArray("user") instance=ExtResource("2_rim5x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.789998, 0, 0.09354)
+user = NodePath("..")
+
+[node name="SwordBladePart_01" parent="TestWeapon" index="2" node_paths=PackedStringArray("user")]
+user = NodePath("../..")
+ability = ExtResource("3_17vaa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aei6x")
+}
+autoplay = "Idle"
+
+[connection signal="attack_end" from="." to="TestWeapon" method="_deactivate"]
+[connection signal="attack_start" from="." to="TestWeapon" method="_activate"]
+
+[editable path="TestWeapon"]

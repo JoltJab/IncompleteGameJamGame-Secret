@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwblibe2d16bx"]
+
+[ext_resource type="Script" path="res://SwordAbilities/Particles/ParticleScripts/LightningMesh.gd" id="1_kyj31"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_q8kuq"]
+
+[node name="LightningCard" type="Node3D"]
+script = ExtResource("1_kyj31")
+
+[node name="LightningNode3D" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.001, -1, 0, 1, 0.001, 0, 0, 0, 1, 0, 0.5, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="LightningMesh" type="MeshInstance3D" parent="LightningNode3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 5.47741e-05, 0, -5.47741e-05, 1, 0, 0, 0)
+mesh = SubResource("QuadMesh_q8kuq")
+
+[node name="Top" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Bottom" type="Marker3D" parent="."]
+unique_name_in_owner = true

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SwordAbility" load_steps=4 format=3 uid="uid://browunvfjm7bw"]
+
+[ext_resource type="ArrayMesh" uid="uid://cmud63uxlwdpw" path="res://SwordAbilities/BladeDesigns/gnome.tres" id="1_4gjai"]
+[ext_resource type="Script" path="res://Classes/SwordAbility.gd" id="1_h8v6t"]
+[ext_resource type="Script" path="res://SwordAbilities/X_Factors/Gnomed.gd" id="3_88he4"]
+
+[resource]
+script = ExtResource("1_h8v6t")
+name = "gnome"
+name_variation = PackedStringArray()
+blade = ExtResource("1_4gjai")
+xFactor = Array[Script]([ExtResource("3_88he4")])
+status_duration = -1.0

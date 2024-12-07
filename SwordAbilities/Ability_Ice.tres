@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SwordAbility" load_steps=8 format=3 uid="uid://dwreyy8uj8hhv"]
+
+[ext_resource type="PackedScene" uid="uid://x8dtlnd57ofg" path="res://Imports/Bumpys/IceCubes.glb" id="1_tbo2j"]
+[ext_resource type="PackedScene" uid="uid://bbm4fxerkf10j" path="res://SwordAbilities/Particles/Particles_Fog.tscn" id="2_tga3e"]
+[ext_resource type="Script" path="res://Classes/SwordAbility.gd" id="3_yg5pe"]
+[ext_resource type="Script" path="res://SwordAbilities/X_Factors/Slow.gd" id="4_d3jmh"]
+[ext_resource type="Script" path="res://SwordAbilities/X_Factors/TurnBlue.gd" id="5_bsxre"]
+[ext_resource type="Script" path="res://SwordAbilities/X_Factors/ExtraDamage_Small.gd" id="6_844xh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wbwp3"]
+albedo_color = Color(0, 0.892178, 0.946932, 1)
+metallic = 1.0
+roughness = 0.25
+clearcoat_enabled = true
+clearcoat_roughness = 0.0
+
+[resource]
+script = ExtResource("3_yg5pe")
+name = "Ice"
+name_variation = PackedStringArray("frost", "snow", "icicle", "freeze", "frozen", "frosty", "cold", "permafrost", "frostbite", "icy", "frosty", "chilled", "chilly", "winter", "chill", "frigid")
+material = SubResource("StandardMaterial3D_wbwp3")
+particleEffects = ExtResource("2_tga3e")
+bumpy = ExtResource("1_tbo2j")
+xFactor = Array[Script]([ExtResource("4_d3jmh"), ExtResource("5_bsxre"), ExtResource("6_844xh")])
+status_duration = 5.0

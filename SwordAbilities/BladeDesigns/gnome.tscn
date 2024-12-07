@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwbelo4f7hxk5"]
+
+[ext_resource type="ArrayMesh" uid="uid://cmud63uxlwdpw" path="res://SwordAbilities/BladeDesigns/gnome.tres" id="1_wiocu"]
+
+[node name="Gnome" type="MeshInstance3D"]
+mesh = ExtResource("1_wiocu")
+skeleton = NodePath("")

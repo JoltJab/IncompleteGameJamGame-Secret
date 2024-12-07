@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvva1liku0g3q"]
+
+[ext_resource type="Script" path="res://TestFolder/Entities/Sword/test_weapon.gd" id="1_dxykw"]
+[ext_resource type="PackedScene" uid="uid://c3ttyeuii66pq" path="res://TestFolder/Entities/Sword/Meshes/sword_blade_part_01.tscn" id="2_gwpl3"]
+[ext_resource type="PackedScene" uid="uid://d11o6pwyty1y6" path="res://TestFolder/Entities/Sword/Meshes/sword_handle.tscn" id="3_jmrtk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6iu6"]
+size = Vector3(0.36, 2.39, 0.08)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqfuy"]
+size = Vector3(0.36, 2.39, 0.08)
+
+[node name="Weapon" type="Area3D" node_paths=PackedStringArray("shape_cast", "sword_blade_parts")]
+transform = Transform3D(0.999997, 0.0022691, -0.00109917, -0.00226734, 0.999996, 0.00159822, 0.00110281, -0.00159571, 0.999998, 0.00298619, 1.19209e-07, 0.0106616)
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_dxykw")
+shape_cast = NodePath("ShapeCast3D")
+sword_blade_parts = [NodePath("SwordBladePart_01")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 2.30216e-10, 8.14907e-09, -5.83213e-11, 1, 0, 8.14907e-09, 0, 1, 0, 0.628, 0)
+shape = SubResource("BoxShape3D_x6iu6")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.628, 0)
+shape = SubResource("BoxShape3D_xqfuy")
+target_position = Vector3(0, 0, 0)
+collision_mask = 0
+
+[node name="SwordBladePart_01" parent="." instance=ExtResource("2_gwpl3")]
+transform = Transform3D(0.999997, -0.00226734, 0.00110279, 0.0022691, 0.999996, -0.00159572, -0.00109919, 0.00159821, 0.999998, 0, 0.2, 0)
+
+[node name="SwordHandle" parent="." instance=ExtResource("3_jmrtk")]
+transform = Transform3D(1, -2.84217e-12, 2.32831e-10, -4.5361e-11, 1, 0, 2.32831e-10, 0, 1, 0, -0.5, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

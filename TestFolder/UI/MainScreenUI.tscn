@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5pltiha5qm3x"]
+
+[ext_resource type="Script" path="res://TestFolder/UI/main_screen_ui.gd" id="1_o4rg0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y7i20"]
+font_size = 32
+
+[node name="MainScreenUI" type="Control" node_paths=PackedStringArray("my_health_bar", "boss_health_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o4rg0")
+my_health_bar = NodePath("VBoxContainer/HBoxContainer3/MyHealth")
+boss_health_bar = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/BossHealth")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.95
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mr. Sniffers"
+label_settings = SubResource("LabelSettings_y7i20")
+horizontal_alignment = 1
+
+[node name="BossHealth" type="ProgressBar" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+value = 5.09
+show_percentage = false
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.17
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.27
+
+[node name="MyHealth" type="ProgressBar" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 5.09
+show_percentage = false
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.33

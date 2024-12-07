@@ -1,0 +1,125 @@
+[gd_scene load_steps=10 format=3 uid="uid://b2a7wimgtw06e"]
+
+[ext_resource type="PackedScene" uid="uid://cwblibe2d16bx" path="res://SwordAbilities/Particles/ParticleTools/LightningCard.tscn" id="1_g1xq3"]
+[ext_resource type="Texture2D" uid="uid://5jwnkr0dvgyy" path="res://Imports/Textures/Lightning/Lightning_01.tga" id="2_csbl5"]
+[ext_resource type="Texture2D" uid="uid://drr5m15r2q8op" path="res://Imports/Textures/Lightning/Lightning_03.tga" id="4_mtxin"]
+[ext_resource type="Texture2D" uid="uid://do4ijyqr6e4gn" path="res://Imports/Textures/Lightning/Lightning_02.tga" id="5_4uqfs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cd0au"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_csbl5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qi1ug"]
+material = SubResource("StandardMaterial3D_cd0au")
+
+[sub_resource type="Animation" id="Animation_5q3ip"]
+resource_name = "Lighting_Idle"
+length = 6.66667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LightningCard/Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.6, 0.633333, 0.733333, 0.8, 0.866667, 2.50189, 2.53333, 2.6, 2.66667, 3.86667, 3.9, 3.96667, 4.03333, 4.3, 4.33333, 4.4, 4.46667, 6.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.337809, 0.0970602, 0.184586), Vector3(0.189247, 1.04178, 0.184586), Vector3(0.243989, 1.11514, 0.135303), Vector3(0.243989, 1.11514, 0.135303), Vector3(0.278117, 0.21671, 0.151843), Vector3(-0.306259, 0.445547, 0.230986), Vector3(-0.385591, 0.39514, -0.107388), Vector3(-0.137526, 0.522916, -0.153724), Vector3(-0.137526, 0.522916, -0.153724), Vector3(0.164848, 0.224256, -0.186678), Vector3(-0.0307721, 1.06431, -0.0500579), Vector3(-0.0644045, 1.1342, -0.0209883), Vector3(-0.0644045, 1.1342, -0.0209883), Vector3(0.240933, 0.947584, -0.074195), Vector3(-0.301155, -0.0366252, -0.074195), Vector3(-0.368878, -0.120306, -0.0400995), Vector3(-0.368878, -0.120306, -0.0400995), Vector3(0.308379, 0.0655642, -0.0553157), Vector3(-0.280791, 0.350724, -0.0837554), Vector3(-0.337347, 0.383683, -0.0498102), Vector3(-0.337347, 0.383683, -0.0498102)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightningCard/Bottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.6, 0.633333, 0.733333, 0.8, 0.833333, 0.866667, 2.5, 2.53333, 2.6, 2.66667, 3.86667, 3.9, 3.96667, 4.03333, 4.3, 4.33333, 4.4, 4.46667, 6.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.399255, 0, 0.1834), Vector3(-0.352885, 0.0999067, 0.1834), Vector3(0.211467, 1.03763, 0.0866341), Vector3(0.211467, 1.03763, 0.0866341), Vector3(0.396154, 0.137832, 0.0148455), Vector3(0.289635, 0.150477, 0.13235), Vector3(-0.258666, 0.354041, 0.181964), Vector3(-0.37318, 0.445979, -0.00688821), Vector3(-0.282188, 0.518681, -0.179703), Vector3(-0.282188, 0.518681, -0.179703), Vector3(0.195565, 0.154135, -0.220681), Vector3(0.152257, 0.25156, -0.198752), Vector3(-0.050755, 1.02494, -0.0690496), Vector3(-0.050755, 1.02494, -0.0690496), Vector3(0.288952, 1.02456, -0.0690496), Vector3(0.205623, 0.909521, -0.095177), Vector3(-0.286071, 0.00276151, -0.0785198), Vector3(-0.286071, 0.00276151, -0.0785198), Vector3(0.394647, 0.0291881, -0.108482), Vector3(0.332781, 0.0497878, -0.110518), Vector3(-0.281952, 0.363006, -0.0783733), Vector3(-0.281952, 0.363006, -0.0783733)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightningCard/LightningNode3D/LightningMesh:mesh:material:albedo_texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9, 2.5, 2.53333, 2.56667, 2.6, 2.63333, 2.66667, 2.7, 3.86667, 3.9, 3.93333, 3.96667, 4, 4.03333, 4.06667, 4.3, 4.33333, 4.36667, 4.4, 4.43333, 4.46667, 4.5, 6.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_mtxin"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("4_mtxin"), ExtResource("4_mtxin"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("4_mtxin"), ExtResource("4_mtxin"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("2_csbl5"), ExtResource("4_mtxin"), ExtResource("4_mtxin"), ExtResource("5_4uqfs"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("4_mtxin"), ExtResource("4_mtxin"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("2_csbl5"), ExtResource("5_4uqfs"), ExtResource("2_csbl5"), ExtResource("4_mtxin"), ExtResource("4_mtxin")]
+}
+
+[sub_resource type="Animation" id="Animation_bci5b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LightningCard/Bottom:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.352885, 0.0999067, 0.1834)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightningCard/Top:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.189247, 1.04178, 0.184586)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightningCard/LightningNode3D/LightningMesh:mesh:material:albedo_texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_csbl5")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ur5ng"]
+_data = {
+"Lighting_Idle": SubResource("Animation_5q3ip"),
+"RESET": SubResource("Animation_bci5b")
+}
+
+[node name="ParticlesLightning" type="Node3D"]
+
+[node name="LightningCard" parent="." instance=ExtResource("1_g1xq3")]
+
+[node name="LightningNode3D" parent="LightningCard" index="0"]
+transform = Transform3D(0.498855, -0.866684, -0.00218765, 0.866685, 0.498856, -1.35428e-09, 0.00109132, -0.00189601, 0.999998, -0.081819, 0.570843, 0.183993)
+
+[node name="LightningMesh" parent="LightningCard/LightningNode3D" index="0"]
+transform = Transform3D(1.08675, 0, 0, 0, 0.497116, 0.107248, 0, -0.0536241, 0.994232, 0, 0, 0)
+mesh = SubResource("QuadMesh_qi1ug")
+
+[node name="Top" parent="LightningCard" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.189247, 1.04178, 0.184586)
+
+[node name="Bottom" parent="LightningCard" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.352885, 0.0999067, 0.1834)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ur5ng")
+}
+autoplay = "Lighting_Idle"
+
+[editable path="LightningCard"]
